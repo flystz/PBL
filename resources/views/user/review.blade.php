@@ -47,7 +47,7 @@
                     <textarea name="review" id="review" class="shadow appearance-none border rounded w-full py-2 px-3 text-black bg-white leading-tight focus:outline-none focus:shadow-outline" rows="10"></textarea>
                     <input type="hidden" id="prediksi">
                     <div class="d-grid my-3">
-                        <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">Kirim</button>
+                        <button class="btn bg-primary hover:bg-gray-100 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">Kirim</button>
                     </div>
                 </div>
             </form>

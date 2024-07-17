@@ -97,18 +97,19 @@
                   <label class="block text-gray-900 text-sm font-bold mb-2" for="email">
                     {{ __('Email Address') }}
                   </label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-50 leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" placeholder="name@example.com" required>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white" name="email" id="email" placeholder="name@example.com" required>
                   @error('email')
                         <span class="text-red-500 text-sm" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
                 </div>
+
                 <div>
                   <label class="block text-gray-900 text-sm font-bold mb-2" for="password">
                     {{ __('Password') }}
                   </label>
-                  <input class="form-control @error('password') is-invalid @enderror rounded w-full py-2 px-3 text-gray-50 leading-tight focus:outline-none focus:shadow-outline" name="password" id="password" type="password" placeholder="******************" required>
+                  <input class="form-control @error('password') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white" name="password" id="password" type="password" placeholder="******************" required>
                   @error('password')
                         <span class="text-red-500 text-sm" role="alert">
                           <strong>{{ $message }}</strong>
@@ -117,7 +118,7 @@
                 </div>
                 <div class="col-12">
                   <div class="d-grid my-3">
-                    <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Login') }}</button>
+                    <button class="btn bg-primary hover:bg-gray-100 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Login') }}</button>
                   </div>
                 </div>
               </div>

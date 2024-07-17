@@ -13,10 +13,10 @@
 <x-navbar></x-navbar>
 
 <div class="container mx-auto p-4 h-screen">
-<a href="{{ route('menu.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Tambah Menu</a>
+<a href="{{ route('menu.create') }}" class="bg-primary hover:bg-blue-700 text-black font-bold py-2 px-4 rounded mb-4 inline-block">Tambah Menu</a>
 
         <table class="min-w-full bg-white border border-gray-300 text-center">
-            <thead class="bg-gradient-to-r from-teal-300 to-green-300">
+            <thead class="bg-primary">
                 <tr>
                     <th class="py-2 px-4 border-b">No</th>
                     <th class="py-2 px-4 border-b">Nama Makanan</th>
@@ -38,11 +38,11 @@
                     <td class="py-2 px-4 border-b"><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->makanan }}" class="w-20 h-20 object-cover"></td>
                     
                     <td class="py-2 px-4 border-b">
-                    <a href="{{ route('menu.edit', $item->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                    <a href="{{ route('menu.edit', $item->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white btn btn-sm btn-active mx-2 ">Edit</a>
                     <form action="{{ route('menu.destroy', $item->id) }}" method="POST" class="inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</button>
+                        <button type="submit" class="bg-primary btn btn-active btn-sm text-white font-bold  ">Hapus</button>
                     </form>
                 </td>
                 </tr>
