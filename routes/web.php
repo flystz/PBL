@@ -1,33 +1,49 @@
 <?php
 
+use App\Http\Controllers\SentimenController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\MenuController; // Add this line to import MenuController
+use App\Http\Controllers\ApiProxyController; // Add this line to import ApiProxyController
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
 Route::get('/home', function () {
     return view('home');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::get('/meja', function () {
-    return view('meja');
+    return view('user.meja');
 });
 
 Route::get('/menu', function () {
-    return view('menu');
+    return view('admin.menu');
 });
 
-Route::get('/review', function () {
-    return view('review');
+Route::get('/reviews', function () {
+    return view('user.review');
 });
+Route::get('/rekomendasi', function () {
+    return view('user.rekomendasi');
+});
+
+
+
+Route::post('/proxy-apriori', [ApiProxyController::class, 'proxyApriori']);
+
+
+Route::get('/menumakan', [MenuController::class, 'showUserMenu'])->name('user.menumakan');
+Route::resource('menu', MenuController::class);
+#Sentimen::Route();
+Route::post('submit-review', [SentimenController::class, 'store'])->name('submit.review');
+Route::resource('sentimen', SentimenController::class);
+#Auth::routes();
+Route::get('admin/login', [AuthController::class, 'index'])->name('login');
+Route::get('dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');

@@ -6,14 +6,19 @@
   @vite('resources/css/app.css')
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <title>Menu </title>
+  <title>Meja</title>
 
 </head>
 <body class="bg-custom-gradient shadow ">
-<x-navbar></x-navbar>
+<x-user-navbar></x-user-navbar>   
 
 
-   
+    <h2 class="text-xl font-bold mt-6">Cek Meja dan Kursi Disini!</h2>
+    <p class="mt-2 text-gray-600">Jika Merah Pertanda sudah terisi, jika Hijau pertanda kosong</p>
+    <div class="flex gap-4 mt-8">   
+      <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-red-500"></div>
+      <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-green-500"></div>
+    </div>
 
     
    

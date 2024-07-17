@@ -11,7 +11,7 @@
         <h1 class="text-2xl font-bold text-black">EatsIQ</h1>
         <div>
             <a href="/login" class="text-black font-medium mr-4">Masuk</a>
-            <a href="/register" class="text-black font-medium mr-4">Daftar</a>
+            <a href="/registration" class="text-black font-medium mr-4">Daftar</a>
             
         </div>
     </header>
