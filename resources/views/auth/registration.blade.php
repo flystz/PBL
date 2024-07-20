@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
-<body class="bg-custom-gradient shadow h-screen text-black">
+<body class="bg-gray-200 shadow  text-black flex flex-col min-h-screen">
 
-<header class="flex justify-between items-center p-4">
-    <h1 class="text-2xl font-bold text-black">EatsIQ</h1>
+<header class="bg-gray-700 flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold text-white  ">EatsIQ</h1>
     <div>
-        <a href="/login" class="text-black font-medium mr-4">Masuk</a>
-        <a href="/registration" class="text-black font-medium mr-4">Daftar</a>
+        <a href="/login" class="text-white   font-medium mr-4">Masuk</a>
+        <a href="/registration" class="text-white  font-medium mr-4">Daftar</a>
     </div>
 </header>
 
@@ -83,7 +83,7 @@
         </div>
     </div>
 </div> -->
-<div class="bg-custom-gradient shadow h-full flex items-center justify-center">
+<div class=" shadow h-full flex items-center justify-center">
     <div class="container mx-auto px-4 py-16">
       <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg mx-auto">
         <h2 class="text-2xl font-bold mb-4 text-center">Daftar</h2>
@@ -99,7 +99,7 @@
           <div class="space-y-4">
             <div>
               <div class="form-floating mb-3 relative">
-                <input type="text" class="form-control bg-white text-black @error('name') is-invalid @enderror w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="name" id="name" placeholder="kyasaizumi" required>
+                <input type="text" class="form-control bg-white text-black @error('name') is-invalid @enderror w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" name="name" id="name" placeholder="name" required>
                 <label for="name" class="form-label absolute text-gray-600 bg-white px-1 -top-2.5 left-3">{{ __('Name') }}</label>
               </div>
               @error('name')
@@ -143,7 +143,7 @@
             </div>
             <div class="col-12">
               <div class="d-grid my-3">
-                <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Register') }}</button>
+                <button class="btn bg-gray-700 hover:bg-white hover:text-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Register') }}</button>
               </div>
             </div>
           </div>

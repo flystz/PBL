@@ -67,18 +67,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
+  <title> Login </title>
 </head>
-<body class="bg-custom-gradient shadow h-screen text-black">
+<body class="bg-gray-200 shadow  text-black flex flex-col min-h-screen">
 
-<header class="flex justify-between items-center p-4  shadow">
-    <h1 class="text-2xl font-bold text-black"><a href="/home">EatsIQ</a></h1>
+<header class="bg-gray-700 flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold text-white  ">EatsIQ</h1>
     <div>
-        <a href="/login" class="text-black font-medium mr-4">Masuk</a>
-        <a href="/registration" class="text-black font-medium">Daftar</a>
+        <a href="/login" class="text-white   font-medium mr-4">Masuk</a>
+        <a href="/registration" class="text-white  font-medium mr-4">Daftar</a>
     </div>
 </header>
 
-<div class="bg-custom-gradient shadow h-full flex items-center justify-center">
+<div class="bg-gray-200  h-full flex items-center justify-center my-auto">
     <div class="container mx-auto px-4 py-16">
         <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg mx-auto">
             <h2 class="text-2xl font-bold mb-4 text-center">Masuk</h2>
@@ -118,7 +119,7 @@
                 </div>
                 <div class="col-12">
                   <div class="d-grid my-3">
-                    <button class="btn bg-primary hover:bg-gray-100 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Login') }}</button>
+                    <button class="btn bg-gray-700 hover:bg-white hover:text-black text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">{{ __('Login') }}</button>
                   </div>
                 </div>
               </div>

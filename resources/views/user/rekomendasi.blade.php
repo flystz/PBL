@@ -10,16 +10,13 @@
   <title>Dashboard</title>
 </head>
 
-<body class="bg-custom-gradient shadow text-black min-h-screen bg-repeat-space ">
+<body class="bg-gray-200 shadow text-black min-h-screen bg-repeat-space ">
   <x-user-navbar></x-user-navbar>
 
-  <div class="flex">
-
-
-
-    <div class="overflow-x-auto size-1/2 mt-40 ">
-      <table class="table text-black  mx-auto size-2/3 ">
-        <thead class="bg-primary text-black">
+  <div class="bg-white lg:flex max-md:grid max-lg:space-y-20 lg:space-x-20 lg:m-10 max-lg:m-5 rounded-lg max-lg:p-5 lg:p-20">
+    <div class="overflow-x-auto lg:size-2/4 max-lg:size-">
+      <table class="table">
+        <thead class="bg-primary text-white">
           <tr>
             <th class=" border">No</th>
             <th class="border">Menu</th>
@@ -29,31 +26,22 @@
           <!-- Use a loop to generate table rows -->
           @php
           $menuItems = [
-          'air mineral', 'ceker', 'ceker ayam', 'coklat', 'es coklat', 'es genderuwo',
-          'es gobak sodor', 'es petak umpet', 'es pocong', 'es sluku bathok', 'es sundel bolong',
-          'es teklek', 'es tuyul', 'gacoan fest a', 'gacoan fest b', 'gacoan fest c', 'genderuwo',
-          'ice tea', 'lemon tea', 'lumpia udang', 'mega diskon paket gacoan b', 'mie angel',
-          'mie angel super', 'mie gacoan lv 0', 'mie gacoan lv 1', 'mie gacoan lv 2', 'mie gacoan lv 3',
-          'mie gacoan lv 4', 'mie gacoan lv 6', 'mie gacoan lv 8', 'mie hompimpa lv 1', 'mie hompimpa lv 2',
-          'mie hompimpa lv 3', 'mie hompimpa lv 4', 'mie hompimpa lv 6', 'mie hompimpa lv 8', 'mie iblis lv 0',
-          'mie iblis lv 1', 'mie iblis lv 2', 'mie iblis lv 3', 'mie iblis lv 4', 'mie iblis lv 6',
-          'mie iblis lv 8', 'mie setan lv 1', 'mie setan lv 2', 'mie setan lv 3', 'mie setan lv 4',
-          'mie setan lv 6', 'mie setan lv 8', 'mie suit', 'milo', 'orange', 'paket gacoan a', 'paket gacoan b',
-          'paket hompimpa a', 'pangsit', 'pangsit goreng', 'pocong', 'siomay', 'siomay ayam', 'sundelbolong',
-          'teh', 'teh tarik', 'thai green tea', 'thai tea ori', 'tuyul', 'udang keju', 'udang rambutan',
-          'vanila latte', 'vanilla latte'
+          'es genderuwo','lemon tea','lumpia udang','mie angel','mie gacoan lv 0','mie gacoan lv 1',
+          'mie gacoan lv 2','mie gacoan lv 3','mie gacoan lv 4','mie iblis lv 0','mie iblis lv 1','mie iblis lv 2',
+          'mie iblis lv 3','mie iblis lv 4','mie iblis lv 6','mie iblis lv 8', 'mie setan lv 1','mie suit',
+          'pangsit','siomay','siomay ayam','teh','thai green tea','udang keju','udang rambutan'  
           ];
 
-          $perPage = 15;
+          $perPage = 10;
           $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
           $totalItems = count($menuItems);
           $totalPages = ceil($totalItems / $perPage);
           $startIndex = ($page - 1) * $perPage;
           $currentItems = array_slice($menuItems, $startIndex, $perPage);
           @endphp
-          
-           <!-- Use a loop to generate table rows -->
-           @foreach ($currentItems as $index => $menu)
+
+          <!-- Use a loop to generate table rows -->
+          @foreach ($currentItems as $index => $menu)
           <tr class="hover bg-white">
             <td class="px-4 py-2 border text-center">{{ $startIndex + $index + 1 }}</td>
             <td class="px-4 py-2 border">{{ $menu }}</td>
@@ -65,23 +53,14 @@
       <!-- Pagination Controls -->
       <div class="flex justify-center mt-4">
         @if ($page > 1)
-        <a href="?page={{ $page - 1 }}" class="btn btn-primary mr-2">Previous</a>
+        <a href="?page={{ $page - 1 }}" class="btn bg-transparent border-2 border-primary text-gray-950 mr-2">Previous</a>
         @endif
-        @if ($page < $totalPages)
-        <a href="?page={{ $page + 1 }}" class="btn btn-primary">Next</a>
-        @endif
+        @if ($page < $totalPages) <a href="?page={{ $page + 1 }}" class="btn text-white btn-primary">Next</a>
+          @endif
       </div>
     </div>
 
-
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-44 size h-1/2">
-      <a href="/menumakan">
-        <button class="btn btn-circle mb-5 btn-primary">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </a>
+    <div class="bg-white lg:border-2 lg:border-gray-300 p-10 rounded-lg size h-1/2">
       <h1 class="text-center text-xl font-bold mb-4">Ketikan menu Anda disini, untuk melihat rekomendasi menu lainnya</h1>
 
       <form id="menuForm">
@@ -92,7 +71,8 @@
         </div>
 
         <div class="flex justify-center mb-4">
-          <button type="submit" class="btn btn-primary shadow-lg">Kirim</button>
+          <button type="submit" id="submitButton" class="btn btn-primary text-white">Kirim</button>
+          <span id="loading-spinner" class="loading loading-dots loading-lg ml-2" style="display: none;"></span>
         </div>
 
         <div class="mb-4">
@@ -103,8 +83,6 @@
 
       <p class="text-center text-sm text-gray-600 mt-4 pb-1">Menu dari hasil rekomendasi merupakan menu yang cocok dimakan bersamaan dengan menu yang dipilih berdasarkan pengalaman pelanggan</p>
     </div>
-
-
   </div>
 
   <!-- Footer -->
@@ -122,6 +100,12 @@
 
       const menuInput = document.getElementById('menu').value;
       const hasilInput = document.getElementById('hasil');
+      const submitButton = document.getElementById('submitButton');
+      const loadingSpinner = document.getElementById('loading-spinner');
+
+      // Hide submit button and show loading spinner
+      submitButton.style.display = 'none';
+      loadingSpinner.style.display = 'inline-block';
 
       try {
         const response = await fetch('https://aprioripk.up.railway.app/apriori', {
@@ -142,10 +126,12 @@
         hasilInput.value = data.consequents.join(', '); // Assuming 'consequents' is an array
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
+      } finally {
+        // Show submit button and hide loading spinner after fetching data
+        submitButton.style.display = 'inline-block';
+        loadingSpinner.style.display = 'none';
       }
     });
   </script>
-
 </body>
-
 </html>

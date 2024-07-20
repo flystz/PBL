@@ -11,6 +11,7 @@ class MenuController extends Controller
     public function index()
     {
         $menu = Menu::all();
+        $menu = Menu::simplePaginate(5);
         $data['menu'] = $menu;
         return view('admin.menu', $data );
     }
