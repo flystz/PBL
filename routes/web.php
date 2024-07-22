@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\MenuController; // Add this line to import MenuController
 use App\Http\Controllers\ApiProxyController; // Add this line to import ApiProxyController
+use App\Http\Controllers\TableStatusController;
+use App\Http\Controllers\TestJarakController; // Add this line to import TestJarakController
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -27,8 +31,12 @@ Route::get('/reviews', function () {
 Route::get('/rekomendasi', function () {
     return view('user.rekomendasi');
 });
+                                 
 
+Route::post('/test-jarak', [TestJarakController::class, 'store']);
+Route::get('/get-data', [TestJarakController::class, 'getAllData']);
 
+Route::get('/get-status', [TableStatusController::class, 'getStatus']);
 
 Route::post('/proxy-apriori', [ApiProxyController::class, 'proxyApriori']);
 
