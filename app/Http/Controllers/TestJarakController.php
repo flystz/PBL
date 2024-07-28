@@ -11,6 +11,7 @@ class TestJarakController extends Controller
     {
         $validatedData = $request->validate([
             'indikator' => 'required|numeric',
+            'indikator_2' => 'required|numeric',
             
         ]);
 
@@ -19,7 +20,12 @@ class TestJarakController extends Controller
     }
     public function getAllData()
     {
-        $data = DataJarak::latest()->first();
+        $data = DataJarak::latest()->first(['indikator', 'indikator_2']);
+        return response()->json($data);
+    }
+    public function getJarak()
+    {
+        $data = DataJarak::latest()->first(['indikator_2']);
         return response()->json($data);
     }
     

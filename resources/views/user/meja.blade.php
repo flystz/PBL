@@ -40,11 +40,13 @@
         const data = await response.json();
         return data;
     }
+    
 
     async function updateCircles() {
         const data = await fetchData();
         if (data) {
             const circle = document.getElementById(`circle-1`); // Assume the latest data is for circle 1 for example
+            const circle2 = document.getElementById('circle-2');
             if (circle) {
                 if (data.indikator == 1) {
                     circle.classList.add('bg-red-500');
@@ -54,12 +56,21 @@
                     circle.classList.remove('bg-red-500');
                 }
             }
+            if (circle2) {
+                if (data.indikator_2 == 1) {
+                    circle2.classList.add('bg-red-500');
+                    circle2.classList.remove('bg-green-500');
+                } else {
+                    circle2.classList.add('bg-green-500');
+                    circle2.classList.remove('bg-red-500');
+                }
+            }
         }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
         updateCircles();
-        setInterval(updateCircles, 1000); // Update every second
+        setInterval(updateCircles, 100); // Update every second
     });
   </script>
 

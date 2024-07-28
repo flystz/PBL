@@ -10,5 +10,5 @@ class DataJarak extends Model
     use HasFactory;
 
     protected $table = 'meja';
-    protected $fillable = ['indikator'];
+    protected $fillable = ['indikator',];
 }
