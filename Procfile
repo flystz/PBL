@@ -5,3 +5,4 @@ web: composer install --no-dev --optimize-autoloader && \
      php artisan route:cache && \
      php artisan view:cache
      php artisan serve --host=0.0.0.0 --port=8000
+     php artisan storage:link
