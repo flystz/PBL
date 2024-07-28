@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             except: [
                 '/test-jarak',
                 '/api/get-data',
+                'https://aprioripk.up.railway.app/apriori',
             ],
         );
       
