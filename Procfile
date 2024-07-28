@@ -1,4 +1,4 @@
-web: php artisan serve --host=0.0.0.0 --port=8000
+web: php artisan serve --host=0.0.0.0 --port=${PORT}
 release: composer install --no-dev --optimize-autoloader && \
          php artisan key:generate --ansi && \
          php artisan migrate --force && \
